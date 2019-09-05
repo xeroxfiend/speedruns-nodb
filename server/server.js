@@ -9,13 +9,16 @@ const app = express();
 const SERVER_PORT = process.env.SERVER_PORT;
 
 //base api URL
-const baseURL = '/api/runs'
+const baseUrl = '/api/speedrun'
 
-//top-level middle-wear. Convert JSON into JS objects.
+//top-level middle-ware. Convert JSON into JS objects.
 app.use(express.json());
 
+//import endpoint controllers
+const speedrunsCtrl = require('./controllers/speedrunsCtrl')
 
 //endpoints
+app.get(`${baseUrl}`, speedrunsCtrl.getRecentRuns)
 
 
 
