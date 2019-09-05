@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import "./App.css";
+import Header from './components/Header'
 
 class App extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class App extends Component {
 
   render() {
     return <div className="App">
-      <h1>HELLO WORLD</h1>
+      <Header />
       <h2>{this.state.placeholder}</h2>
     </div>;
 

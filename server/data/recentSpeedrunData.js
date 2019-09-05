@@ -1,3 +1,5 @@
 module.exports = {
-    recentSpeedruns: []
+    recentSpeedruns: [],
+    recentSpeedrunsByRunner: [],
+    recentSpeedrunsByGame: []
 }
