@@ -19,8 +19,11 @@ module.exports = {
   getRecentRunsByRunner: (req, res) => {
     axios
     .get(
-      "https://"
-    )
+      `https://www.speedrun.com/api/v1/users?name=${req.params.name}`
+    ).then(userResult => {
+        const userId = userResult.data.data[0].id
+        return axios.get(`https://www.speedrun.com/api/v1/runs?user=${userId}`)        
+    })
     .then(result => {
       recentSpeedrunData.recentSpeedrunsByRunner.push(result.data);
       res.status(200).send(recentSpeedrunData.recentSpeedrunsByRunner);
@@ -29,7 +32,11 @@ module.exports = {
   getRecentRunsByGame: (req, res) => {
     axios
     .get(
-      "https://"
+      `https://www.speedrun.com/api/v1/games?name=${req.query.name}`
+    ).then(result => {
+        const gameId = result.data.data[0].id
+        return axios.get(`https://www.speedrun.com/api/v1/runs?game=${gameId}`)
+    }
     )
     .then(result => {
       recentSpeedrunData.recentSpeedrunsByGame.push(result.data);
