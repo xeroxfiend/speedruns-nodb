@@ -20,9 +20,9 @@ const speedrunsCtrl = require('./controllers/speedrunsCtrl')
 //endpoints
 app.get(`${baseUrl}`, speedrunsCtrl.getRecentRuns)
 
-app.get(`${baseUrl}/:name`, speedrunsCtrl.getRecentRunsByRunner)
+app.get(`${baseUrl}/runner/:name`, speedrunsCtrl.getRecentRunsByRunner)
 
-app.get(`${baseUrl}`, speedrunsCtrl.getRecentRunsByGame)
+app.get(`${baseUrl}/game`, speedrunsCtrl.getRecentRunsByGame)
 
 
 
