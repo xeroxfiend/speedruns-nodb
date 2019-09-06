@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class Run extends Component {
+class RunSearch extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -9,13 +9,11 @@ class Run extends Component {
     }
 
     render() {
-        // console.log(this.props.data.date)
         return(
-            <div className="run">
-                {this.props.data.date}                
+            <div className="run-search">
             </div>
         )
     }
 }
 
-export default Run
+export default RunSearch

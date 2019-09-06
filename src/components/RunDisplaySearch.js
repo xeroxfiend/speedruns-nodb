@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import Run from './Run'
+import RunSearch from './RunSearch'
+import axios from 'axios'
 
 class RunDisplaySearch extends Component {
     constructor() {
@@ -12,7 +13,7 @@ class RunDisplaySearch extends Component {
     render() {
         return(
             <div className="run-display-search">
-                <Run />
+                <RunSearch />
             </div>
         )
     }

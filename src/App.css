@@ -3,7 +3,6 @@
 }
 
 .App {
-    /* text-align: center; */
     height: 100vh;
     width: auto;
     background: grey;
@@ -64,6 +63,13 @@
     padding: 10px;
 }
 
+
+/* .run {
+    height: 130px;
+    width: 200px;
+    background: black;
+} */
+
 .watch-list-title {
     margin-top: -50px;
     color: white;
@@ -71,13 +77,8 @@
 
 .watch-list {
     height: 30vh;
-    width: 60%;
+    width: 70%;
     background: gray;
+    margin-top: -17px;
     margin-bottom: 50px;
-}
-
-.run {
-    height: 130px;
-    width: 200px;
-    background: black;
 }
