@@ -12,7 +12,6 @@ class RunDisplayAll extends Component {
     render() {
         return(
             <div className="run-display-all">
-                Run Display All
                 <Run />
             </div>
         )

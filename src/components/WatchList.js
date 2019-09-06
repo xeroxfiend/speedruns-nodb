@@ -11,7 +11,6 @@ class WatchList extends Component {
     render() {
         return(
             <div className="watch-list">
-                Watch List
             </div>
         )
     }

@@ -15,10 +15,11 @@ class Main extends Component {
     render() {
         return(
             <div className="main">
-                Main
+                <h2 className="recent">Recent runs</h2>
                 <RunDisplayAll />
                 <Input />
                 <RunDisplaySearch />
+                <h2 className="watch-list-title">Watch List</h2>
                 <WatchList />
             </div>
         )

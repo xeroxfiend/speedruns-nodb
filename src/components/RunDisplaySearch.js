@@ -12,7 +12,6 @@ class RunDisplaySearch extends Component {
     render() {
         return(
             <div className="run-display-search">
-                Run Display Search
                 <Run />
             </div>
         )
