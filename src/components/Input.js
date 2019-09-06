@@ -11,7 +11,9 @@ class Input extends Component {
     render() {
         return(
             <div className="input">
-                Input
+                <input placeholder='Search by runner' className="runner"/>
+                <input placeholder='Search by game' className="game"/>
+                <button className="search">Search!</button>
             </div>
         )
     }

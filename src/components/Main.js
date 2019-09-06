@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
-import RunDisplay from './RunDisplay';
+import RunDisplayAll from './RunDisplayAll';
+import RunDisplaySearch from './RunDisplaySearch'
 import WatchList from './WatchList'
+import Input from './Input'
 
 class Main extends Component {
     constructor() {
@@ -14,7 +16,9 @@ class Main extends Component {
         return(
             <div className="main">
                 Main
-                <RunDisplay />
+                <RunDisplayAll />
+                <Input />
+                <RunDisplaySearch />
                 <WatchList />
             </div>
         )
