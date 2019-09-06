@@ -2,7 +2,6 @@
 const axios = require("axios");
 
 //access to backend data
-const recentSpeedrunData = require("../data/recentSpeedrunData");
 const runsUrl = 'https://www.speedrun.com/api/v1/runs?status=verified&orderby=verify-date&direction=desc'
 
 //endpoint controllers
@@ -13,8 +12,7 @@ module.exports = {
         runsUrl
       )
       .then(result => {
-        recentSpeedrunData.recentSpeedruns.push(result.data);
-        res.status(200).send(recentSpeedrunData.recentSpeedruns);
+        res.status(200).send(result.data);
       });
   },
   getRecentRunsByRunner: (req, res) => {
@@ -26,8 +24,7 @@ module.exports = {
         return axios.get(`${runsUrl}&user=${userId}`)        
     })
     .then(result => {
-      recentSpeedrunData.recentSpeedrunsByRunner.push(result.data);
-      res.status(200).send(recentSpeedrunData.recentSpeedrunsByRunner);
+      res.status(200).send(result.data);
     });
   },
   getRecentRunsByGame: (req, res) => {
@@ -39,8 +36,7 @@ module.exports = {
         return axios.get(`${runsUrl}&game=${gameId}`)
     })
     .then(result => {
-      recentSpeedrunData.recentSpeedrunsByGame.push(result.data);
-      res.status(200).send(recentSpeedrunData.recentSpeedrunsByGame);
+      res.status(200).send(result.data);
     });
   }
 };

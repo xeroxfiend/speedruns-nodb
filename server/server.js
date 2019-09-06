@@ -16,6 +16,7 @@ app.use(express.json());
 
 //import endpoint controllers
 const speedrunsCtrl = require('./controllers/speedrunsCtrl')
+const watchListCtrl = require('./controllers/watchListCtrl')
 
 //endpoints
 app.get(`${baseUrl}`, speedrunsCtrl.getRecentRuns)
@@ -23,6 +24,10 @@ app.get(`${baseUrl}`, speedrunsCtrl.getRecentRuns)
 app.get(`${baseUrl}/runner/:name`, speedrunsCtrl.getRecentRunsByRunner)
 
 app.get(`${baseUrl}/game`, speedrunsCtrl.getRecentRunsByGame)
+
+app.get(`${baseUrl}/watch-list`, watchListCtrl.getWatchList)
+
+app.post(`${baseUrl}/watch-list`, watchListCtrl.addToWatchList)
 
 
 
