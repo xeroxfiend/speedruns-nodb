@@ -1,4 +1,3 @@
-const axios = require("axios");
 const {watchList} = require("../data/watchListData");
 
 module.exports = {

@@ -4,14 +4,29 @@
 
 .App {
     /* text-align: center; */
+    height: 100vh;
+    width: auto;
+    background: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-header {
+.main {
+    height: 80%;
+    width: 80%;
+    background: rgb(50, 50, 119);
+}
+
+.header {
     text-align: center;
     height: 70px;
+    width: 100vw;
     background: rgb(50, 50, 119);
     color: white;
     padding: 10px;
     font-size: 2rem;
-    box-shadow: 10px black
+    margin-top: -6vh;
+    margin-bottom: 7vh;
 }
