@@ -11,6 +11,7 @@ class Main extends Component {
             placeholder: ''
         }
     }
+       
 
     render() {
         return(
