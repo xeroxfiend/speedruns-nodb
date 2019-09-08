@@ -18,13 +18,21 @@ class Run extends Component {
   }
 
   render() {
-    const game = this.props.data.game;
+    const gameId = this.props.data.game;
+    console.log(gameId)
+    let gameName = ''
+    axios.get(`https://www.speedrun.com/api/v1/games/${gameId}`).then(res => gameName = res.data.data.names.international)
+    console.log(gameName)
+    const categoryId = this.props.data.category;
+    console.log(categoryId)
+    let categoryName = ''
+    axios.get(`https://www.speedrun.com/api/v1/categories/${categoryId}`).then(res => categoryName = res.data.data.name)
+    console.log(categoryName)
     const videoLink = this.props.data.videos.links[0].uri;
-    const category = this.props.data.category;
 
     return (
       <div className="run">
-        {game}
+        {gameName}
         {videoLink.includes("twitch") ? (
           <img
             onClick={() => this.imageClick(this.state.runsData)}
@@ -44,7 +52,7 @@ class Run extends Component {
             alt="youtube icon"
           />
         )}
-        {category}
+        {categoryName}
       </div>
     );
   }
