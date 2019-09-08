@@ -7,8 +7,9 @@ class WLRun extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      runsData: this.props.data,
+      runData: this.props.data,
       clicked: false
+      // watched: false
     };
   }
 
@@ -26,12 +27,26 @@ class WLRun extends Component {
     axios.put(`/api/speedrun/watch-list/${id}`).then(res => {
       this.props.updateFn(res.data);
     });
+    // this.setState({watched: !this.state.watched})
   }
 
   render() {
-    const game = this.props.data.game;
-    const videoLink = this.props.data.videos.links[0].uri;
-    const category = this.props.data.category;
+    const game = this.state.runData.gameName;
+    const category = this.state.runData.categoryName;
+    const watched = this.state.runData.watched;
+    const videoLink = this.state.runData.videos.links[0].uri;
+
+    let videoEmbedLink = "";
+    if (videoLink.includes("twitch")) {
+      videoEmbedLink = videoLink.replace(
+        /www.twitch.tv\/videos\//,
+        "player.twitch.tv/?autoplay=false&video=v"
+      );
+    } else if (videoLink.includes("youtu.be")) {
+      videoEmbedLink = videoLink.replace(/.be/, "be.com/embed");
+    } else if (videoLink.includes("youtube.com")) {
+      videoEmbedLink = videoLink.replace(/watch\?v=/, "embed/");
+    }
 
     return (
       <div className="player">
@@ -60,13 +75,13 @@ class WLRun extends Component {
             {category}
             <div className="buttons">
               <button
-                onClick={() => this.watched(this.state.runsData.id)}
+                onClick={() => this.watched(this.state.runData.id)}
                 className="watched"
               >
                 Watched?
               </button>
               <button
-                onClick={() => this.remove(this.state.runsData.id)}
+                onClick={() => this.remove(this.state.runData.id)}
                 className="remove"
               >
                 Remove
@@ -78,12 +93,14 @@ class WLRun extends Component {
             <button onClick={() => this.imageClick()} className="x">
               X
             </button>
-            <video
-              src={videoLink}
-              controls
-              height="360px"
-              width="640px"
-            ></video>
+            <iframe
+              width="560"
+              height="315"
+              src={videoEmbedLink}
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
         )}
       </div>

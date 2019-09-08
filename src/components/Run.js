@@ -7,7 +7,7 @@ class Run extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      runsData: this.props.data
+      runData: this.props.data
     };
   }
 
@@ -18,24 +18,13 @@ class Run extends Component {
   }
 
   render() {
-    const gameId = this.props.data.game;
-    console.log(gameId)
-    let gameName = ''
-    axios.get(`https://www.speedrun.com/api/v1/games/${gameId}`).then(res => gameName = res.data.data.names.international)
-    console.log(gameName)
-    const categoryId = this.props.data.category;
-    console.log(categoryId)
-    let categoryName = ''
-    axios.get(`https://www.speedrun.com/api/v1/categories/${categoryId}`).then(res => categoryName = res.data.data.name)
-    console.log(categoryName)
-    const videoLink = this.props.data.videos.links[0].uri;
-
+    const videoLink = this.state.runData.videos.links[0].uri;
     return (
       <div className="run">
-        {gameName}
+        {this.state.runData.gameName}
         {videoLink.includes("twitch") ? (
           <img
-            onClick={() => this.imageClick(this.state.runsData)}
+            onClick={() => this.imageClick(this.state.runData)}
             className="twitch-icon"
             width="80"
             height="80"
@@ -44,7 +33,7 @@ class Run extends Component {
           />
         ) : (
           <img
-            onClick={() => this.imageClick(this.state.runsData)}
+            onClick={() => this.imageClick(this.state.runData)}
             className="twitch-icon"
             width="80"
             height="80"
@@ -52,7 +41,7 @@ class Run extends Component {
             alt="youtube icon"
           />
         )}
-        {categoryName}
+        {this.state.runData.categoryName}
       </div>
     );
   }

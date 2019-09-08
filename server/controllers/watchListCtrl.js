@@ -23,7 +23,7 @@ module.exports = {
     const {id} = req.params
     for (let i = 0; i < watchList.length; i++) {
       if (watchList[i].id === id) {
-        watchList.splice(watchList[i], 1)
+        watchList.splice(i, 1)
       }      
     }
     res.status(200).send(watchList)

@@ -75,11 +75,15 @@
     margin-top: -17px;
     margin-bottom: 10px;
     color: white;
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px;
 }
 
 .run {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 button {
@@ -95,5 +99,5 @@ button {
 
 .x {
     height: 35px;
-    width: 35px
+    width: 35px;
 }
