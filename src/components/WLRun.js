@@ -3,7 +3,7 @@ import twitchIco from "../assets/twitchicon.jpg";
 import ytIco from "../assets/youtubeicon.png";
 import axios from "axios";
 
-class Run extends Component {
+class WLRun extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,4 +50,4 @@ class Run extends Component {
   }
 }
 
-export default Run;
+export default WLRun;

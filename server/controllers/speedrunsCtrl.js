@@ -11,9 +11,12 @@ module.exports = {
     axios.get(runsUrl).then(result => {
       const cleanRuns = result.data.data.filter(el => {
         return (
-          el.videos.links &&
-          (el.videos.links[0].uri.includes("twitch") ||
-            el.videos.links[0].uri.includes("youtu"))
+          el &&
+          el.videos &&
+          el.videos.links && (
+            el.videos.links[0].uri.includes("twitch") ||
+              el.videos.links[0].uri.includes("youtu")
+          )
         );
       });
       res.status(200).send(cleanRuns.slice(0, 5));

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
-import Run from "./Run";
+import WLRun from "./WLRun";
 
 class WatchList extends Component {
   constructor(props) {
@@ -15,14 +15,12 @@ class WatchList extends Component {
 
   render() {
     const watchListRun = this.props.watchList.map(el => (
-      <Run key={el.id} data={el} />
+      <WLRun key={el.id} data={el} />
     ));
     return (
       <div className="watch-list">
         <div className="run-container">
-          {watchListRun}
-          <button className="watched">Watched?</button>
-          <button className="remove">Remove</button>
+          {watchListRun}        
         </div>
       </div>
     );
