@@ -71,7 +71,7 @@
 .watch-list {
     height: 40vh;
     width: 70%;
-    background: gray;
+    background: black;
     margin-top: -17px;
     margin-bottom: 10px;
 }
@@ -82,10 +82,17 @@
 }
 
 button {
-    border: none;
-    background: purple;
+    border: 1px solid black;
+    background: grey;
     height: 30px;
     width: auto;
     padding: 5px;
     margin: 5px;
+    color: white;
+    border-radius: 15px;
+}
+
+.x {
+    height: 35px;
+    width: 35px
 }
