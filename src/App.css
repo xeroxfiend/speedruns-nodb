@@ -3,7 +3,7 @@
 }
 
 .App {
-    height: 100vh;
+    height: auto;
     width: auto;
     background: grey;
     display: flex;
@@ -13,6 +13,20 @@
 }
 
 .header {
+    text-align: center;
+    height: 70px;
+    width: 100vw;
+    background: rgb(50, 50, 119);
+    color: white;
+    padding: 10px;
+    font-size: 2rem;
+    margin-top: -6vh;
+    margin-bottom: 7vh;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.footer {
     text-align: center;
     height: 70px;
     width: 100vw;
@@ -69,7 +83,7 @@
 }
 
 .watch-list {
-    height: 40vh;
+    height: auto;
     width: 70%;
     background: black;
     margin-top: -17px;
@@ -84,6 +98,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 button {
@@ -100,4 +115,17 @@ button {
 .x {
     height: 35px;
     width: 35px;
+    position: absolute;
+}
+
+.twitch-icon-grey {
+    opacity: 0.2;
+    filter: alpha(opacity=40);
+    background-color: #000;
+}
+
+.youtube-icon-grey {
+    opacity: 0.2;
+    filter: alpha(opacity=40);
+    background-color: #000;
 }

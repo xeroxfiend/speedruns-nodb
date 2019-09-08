@@ -8,8 +8,8 @@ class WLRun extends Component {
     super(props);
     this.state = {
       runData: this.props.data,
-      clicked: false
-      // watched: false
+      clicked: false,
+      watched: false
     };
   }
 
@@ -56,7 +56,7 @@ class WLRun extends Component {
             {videoLink.includes("twitch") ? (
               <img
                 onClick={() => this.imageClick()}
-                className="twitch-icon"
+                className={watched ? "twitch-icon-grey" : "twitch-icon"}
                 width="80"
                 height="80"
                 src={twitchIco}
@@ -65,7 +65,7 @@ class WLRun extends Component {
             ) : (
               <img
                 onClick={() => this.imageClick()}
-                className="twitch-icon"
+                className={watched ? "youtube-icon-grey" : "youtube-icon"}
                 width="80"
                 height="80"
                 src={ytIco}

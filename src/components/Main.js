@@ -14,6 +14,7 @@ class Main extends Component {
     }
     
     updateWatchList(list) {
+        this.setState({watchList: []})
         this.setState({watchList: list})
     }       
 
