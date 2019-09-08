@@ -15,7 +15,7 @@ class WatchList extends Component {
 
   render() {
     const watchListRun = this.props.watchList.map(el => (
-      <WLRun key={el.id} data={el} />
+      <WLRun updateFn={this.props.updateFn} key={el.id} data={el} />
     ));
     return (
       <div className="watch-list">

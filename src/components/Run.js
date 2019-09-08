@@ -27,7 +27,7 @@ class Run extends Component {
         {game}
         {videoLink.includes("twitch") ? (
           <img
-            onClick={() => this.imageClick(this.props.data)}
+            onClick={() => this.imageClick(this.state.runsData)}
             className="twitch-icon"
             width="80"
             height="80"
@@ -36,7 +36,7 @@ class Run extends Component {
           />
         ) : (
           <img
-            onClick={() => this.imageClick(this.props.data)}
+            onClick={() => this.imageClick(this.state.runsData)}
             className="twitch-icon"
             width="80"
             height="80"

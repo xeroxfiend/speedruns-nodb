@@ -80,3 +80,12 @@
     display: flex;
     flex-direction: column;
 }
+
+button {
+    border: none;
+    background: purple;
+    height: 30px;
+    width: auto;
+    padding: 5px;
+    margin: 5px;
+}

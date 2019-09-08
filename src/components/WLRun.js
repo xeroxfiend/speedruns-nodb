@@ -12,9 +12,13 @@ class WLRun extends Component {
   }
 
   imageClick(run) {
-    axios.post("/api/speedrun/watch-list", run).then(res => {
-      this.props.updateFn(res.data);
-    });
+    //play the run
+  }
+
+  remove(id) {
+    axios.delete(`/api/speedrun/watch-list/${id}`).then(res => {
+      this.props.updateFn(res.data)
+    })
   }
 
   render() {
@@ -27,7 +31,7 @@ class WLRun extends Component {
         {game}
         {videoLink.includes("twitch") ? (
           <img
-            onClick={() => this.imageClick(this.props.data)}
+            onClick={() => this.imageClick(this.state.runsData)}
             className="twitch-icon"
             width="80"
             height="80"
@@ -36,7 +40,7 @@ class WLRun extends Component {
           />
         ) : (
           <img
-            onClick={() => this.imageClick(this.props.data)}
+            onClick={() => this.imageClick(this.state.runsData)}
             className="twitch-icon"
             width="80"
             height="80"
@@ -45,6 +49,15 @@ class WLRun extends Component {
           />
         )}
         {category}
+        <div className="buttons">
+          <button className="watched">Watched?</button>
+          <button
+            onClick={() => this.remove(this.state.runsData.id)}
+            className="remove"
+          >
+            Remove
+          </button>
+        </div>
       </div>
     );
   }
