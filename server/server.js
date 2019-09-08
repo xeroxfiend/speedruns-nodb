@@ -35,11 +35,6 @@ app.put(`${baseUrl}/watch-list/:id`, watchListCtrl.updateWatchList)
 app.delete(`${baseUrl}/watch-list/:id`, watchListCtrl.deleteFromWatchList)
 
 
-
-
-
-
-
 //Ensures server is up and running
 app.listen(SERVER_PORT, () => {
   console.log(`Listening on port ${SERVER_PORT}`);

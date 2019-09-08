@@ -8,20 +8,24 @@ class Main extends Component {
     constructor() {
         super()
         this.state = {
-            placeholder: ''
+            watchList: []
         }
+        this.updateWatchList = this.updateWatchList.bind(this)
     }
-       
+    
+    updateWatchList(list) {
+        this.setState({watchList: list})
+    }       
 
     render() {
         return(
             <div className="main">
                 <h2 className="recent">Recent runs</h2>
-                <RunDisplayAll />
+                <RunDisplayAll updateFn={this.updateWatchList} />
                 <Input />
                 <RunDisplaySearch />
                 <h2 className="watch-list-title">Watch List</h2>
-                <WatchList />
+                <WatchList updateFn={this.updateWatchList} watchList={this.state.watchList} />
             </div>
         )
     }

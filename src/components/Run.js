@@ -7,41 +7,31 @@ class Run extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    //   runsData: this.state.props.data    
+      runsData: this.props.data,
     };
   }
 
-  imageClick() {
-      axios.post('/api/speedrun/')
+  imageClick(run) {
+      axios.post('/api/speedrun/watch-list', run).then(res => {
+        this.props.updateFn(res.data)
+      })
       
   }
 
   render() {
-    console.log(this.props.data);
     const game = this.props.data.game;
     const videoLink = this.props.data.videos.links[0].uri;
-    const runner = this.props.data.players[0].id;
-
-    // let ytId = null
-
-    // if (videoLink.includes('youtu')) {
-    // for (let i = 0; i < videoLink.length; i++) {
-    //     if (videoLink[i] === '=') {
-    //         return ytId = videoLink.slice(i + 1, i + 11)
-    //     }
-    // }}
-    // console.log(ytId)
-    // const youtubeThumb = <img src="http://img.youtube.com/vi/youtube_id/default.jpg"></img>
+    const category = this.props.data.category;
 
     return (
       <div className="run">
-        Game Name
+        {game}
         {videoLink.includes("twitch") ? (
-          <img onClick={() => this.imageClick()} className = 'twitch-icon' width ='80' height = '80' src={twitchIco} alt="twitch icon" />
+          <img onClick={() => this.imageClick(this.props.data)} className = 'twitch-icon' width ='80' height = '80' src={twitchIco} alt="twitch icon" />
         ) : (
-          <img onClick={() => this.imageClick()} className = 'twitch-icon' width ='80' height = '80' src={ytIco} alt="youtube icon" />
+          <img onClick={() => this.imageClick(this.props.data)} className = 'twitch-icon' width ='80' height = '80' src={ytIco} alt="youtube icon" />
         )}
-        Category
+        {category}
       </div>
     );
   }
