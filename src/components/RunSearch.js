@@ -19,7 +19,7 @@ class RunSearch extends Component {
       render() {
         const videoLink = this.state.runData.videos.links[0].uri;
         return (
-          <div className="run">
+          <div className="run-search">
             {this.state.runData.gameName}
             {videoLink.includes("twitch") ? (
               <img

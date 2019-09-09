@@ -15,7 +15,6 @@ class RunDisplayAll extends Component {
             this.setState({runsData: res.data})
         })
     }
-
     
     render() {
         const data = this.state.runsData.map(el => <Run updateFn={this.props.updateFn} key ={el.id} data={el} />)

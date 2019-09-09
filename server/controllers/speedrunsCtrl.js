@@ -54,7 +54,41 @@ module.exports = {
         return axios.get(`${runsUrl}&user=${userId}`);
       })
       .then(result => {
-        res.status(200).send(result.data);
+        const cleanRuns = result.data.data.filter(el => {
+          return (
+            el &&
+            el.videos &&
+            el.videos.links &&
+            (el.videos.links[0].uri.includes("twitch") ||
+              el.videos.links[0].uri.includes("youtu"))
+          );
+        });
+        const finalRuns = cleanRuns.slice(0, 5);
+        const runPromises = finalRuns.map(el => {
+          const gameId = el.game;
+          let gameName = "";
+          const categoryId = el.category;
+          let categoryName = "";
+          return axios
+            .get(`https://www.speedrun.com/api/v1/games/${gameId}`)
+            .then(res => {
+              gameName = res.data.data.names.international;
+              return axios.get(
+                `https://www.speedrun.com/api/v1/categories/${categoryId}`
+              );
+            })
+            .then(res => {
+              categoryName = res.data.data.name;
+            })
+            .then(() => {
+              el.gameName = gameName;
+              el.categoryName = categoryName;
+              return el;
+            });
+        });
+        Promise.all(runPromises).then(runs => {
+          res.status(200).send(runs);
+        });
       });
   },
   getRecentRunsByGame: (req, res) => {
@@ -65,7 +99,41 @@ module.exports = {
         return axios.get(`${runsUrl}&game=${gameId}`);
       })
       .then(result => {
-        res.status(200).send(result.data);
+        const cleanRuns = result.data.data.filter(el => {
+          return (
+            el &&
+            el.videos &&
+            el.videos.links &&
+            (el.videos.links[0].uri.includes("twitch") ||
+              el.videos.links[0].uri.includes("youtu"))
+          );
+        });
+        const finalRuns = cleanRuns.slice(0, 5);
+        const runPromises = finalRuns.map(el => {
+          const gameId = el.game;
+          let gameName = "";
+          const categoryId = el.category;
+          let categoryName = "";
+          return axios
+            .get(`https://www.speedrun.com/api/v1/games/${gameId}`)
+            .then(res => {
+              gameName = res.data.data.names.international;
+              return axios.get(
+                `https://www.speedrun.com/api/v1/categories/${categoryId}`
+              );
+            })
+            .then(res => {
+              categoryName = res.data.data.name;
+            })
+            .then(() => {
+              el.gameName = gameName;
+              el.categoryName = categoryName;
+              return el;
+            });
+        });
+        Promise.all(runPromises).then(runs => {
+          res.status(200).send(runs);
+        });
       });
   }
 };

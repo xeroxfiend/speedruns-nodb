@@ -15,7 +15,6 @@ class RunDisplaySearch extends Component {
   handleSearchRunner() {
     axios.get(`/api/speedrun/runner/${this.state.inputRunner}`).then(res => {
         this.setState({runsData: res.data});
-        console.log(this.state.runsData)
       })
   }
 

@@ -27,7 +27,6 @@ class WLRun extends Component {
     axios.put(`/api/speedrun/watch-list/${id}`).then(res => {
       this.props.updateFn(res.data);
     });
-    // this.setState({watched: !this.state.watched})
   }
 
   render() {
