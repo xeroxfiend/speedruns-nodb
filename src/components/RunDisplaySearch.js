@@ -15,13 +15,13 @@ class RunDisplaySearch extends Component {
   handleSearchRunner() {
     axios.get(`/api/speedrun/runner/${this.state.inputRunner}`).then(res => {
         this.setState({runsData: res.data});
-      })
+      }).catch(() => alert('oh boy'))
   }
 
   handleSearchGame() {
     axios.get(`/api/speedrun/game?game=${this.state.inputGame}`).then(res => {
         this.setState({runsData: res.data});
-      })
+      }).catch(() => alert('uh oh'))
   }  
   
   handleChangeRunner(e) {
