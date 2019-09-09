@@ -2,14 +2,19 @@
     box-sizing: border-box;
 }
 
+body {
+    background: grey;
+}
+
 .App {
-    height: auto;
+    height: 100%;
     width: auto;
     background: grey;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: linear-gradient(-50deg, rgb(116, 116, 116), darkgray);
 }
 
 .header {
@@ -24,6 +29,7 @@
     margin-bottom: 7vh;
     letter-spacing: 3px;
     font-weight: bold;
+    box-shadow: 2px 2px 5px black;
 }
 
 .footer {
@@ -43,7 +49,6 @@
 .main {
     height: 80%;
     width: 80%;
-    background: rgb(50, 50, 119);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,19 +60,26 @@
     margin-bottom: -2vh;
 }
 
+.search {
+    color: white;
+}
+
 .run-display-all {
-    height: 150px;
+    min-height: 150px;
+    height: auto;
     width: 85%;
     background: darkgray;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 2vh 0 50px 0;
+    margin: 5vh 0 50px 0;
     padding: 10px;
+    box-shadow: 2px 2px 10px black;
 }
 
 .run-display-search {
-    height: 150px;
+    min-height: 150px;
+    height: auto;
     width: 85%;
     background: darkgray;
     display: flex;
@@ -75,6 +87,7 @@
     align-items: center;
     margin: 10px 0 100px 0;
     padding: 10px;
+    box-shadow: 2px 2px 10px black;
 }
 
 .watch-list-title {
@@ -84,13 +97,14 @@
 
 .watch-list {
     height: auto;
-    width: 70%;
-    background: black;
+    min-height: 400px;
+    width: 60%;
+    background: rgb(43, 43, 43);
     margin-top: -17px;
     margin-bottom: 10px;
     color: white;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 20px;
 }
 
@@ -102,20 +116,26 @@
 }
 
 button {
-    border: 1px solid black;
-    background: grey;
+    border: none;
+    background: #323277;
     height: 30px;
     width: auto;
     padding: 5px;
     margin: 5px;
     color: white;
     border-radius: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: grey
 }
 
 .x {
-    height: 35px;
-    width: 35px;
+    height: 25px;
+    width: 25px;
     position: absolute;
+    opacity: 0.8;
 }
 
 .twitch-icon-grey {
@@ -128,4 +148,8 @@ button {
     opacity: 0.2;
     filter: alpha(opacity=40);
     background-color: #000;
+}
+
+img {
+    cursor: pointer;
 }

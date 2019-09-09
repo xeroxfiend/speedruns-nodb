@@ -31,9 +31,8 @@ class WLRun extends Component {
   }
 
   render() {
-    const game = this.state.runData.gameName;
-    const category = this.state.runData.categoryName;
-    const watched = this.state.runData.watched;
+    const {gameName, categoryName, watched} = this.state.runData
+    
     const videoLink = this.state.runData.videos.links[0].uri;
 
     let videoEmbedLink = "";
@@ -52,7 +51,7 @@ class WLRun extends Component {
       <div className="player">
         {!this.state.clicked ? (
           <div className="run">
-            {game}
+            {gameName}
             {videoLink.includes("twitch") ? (
               <img
                 onClick={() => this.imageClick()}
@@ -72,7 +71,7 @@ class WLRun extends Component {
                 alt="youtube icon"
               />
             )}
-            {category}
+            {categoryName}
             <div className="buttons">
               <button
                 onClick={() => this.watched(this.state.runData.id)}
@@ -94,6 +93,7 @@ class WLRun extends Component {
               X
             </button>
             <iframe
+              title="video"
               width="560"
               height="315"
               src={videoEmbedLink}

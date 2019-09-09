@@ -23,6 +23,7 @@ class Main extends Component {
             <div className="main">
                 <h2 className="recent">Recent runs</h2>
                 <RunDisplayAll updateFn={this.updateWatchList} />
+                <h2 className="search">Search for runs</h2>
                 <Input />
                 <RunDisplaySearch />
                 <h2 className="watch-list-title">Watch List</h2>

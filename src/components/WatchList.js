@@ -3,10 +3,7 @@ import axios from "axios";
 import WLRun from "./WLRun";
 
 class WatchList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   componentDidMount() {
     axios.get("/api/speedrun/watch-list").then(res => {
       this.props.updateFn(res.data);

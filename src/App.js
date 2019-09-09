@@ -5,12 +5,7 @@ import Footer from './components/Footer'
 import Main from './components/Main'
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      placeholder: 'App state'
-    };
-  }
+  
 
   render() {
     return (<div className="App">
